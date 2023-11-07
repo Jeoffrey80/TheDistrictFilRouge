@@ -6,22 +6,32 @@
 <style>
     /* Styles CSS */
     .image-reduite {
-        width: 150px;
+        width:125px;
         /* Largeur souhaitée */
-        height: 150px;
+        height:125px;
         /* Hauteur souhaitée */
     }
 
     .logo-gauche {
-        margin-left: 0  ;
+        margin-left: 0;
+    }
+
+    .navbar-custom {
+        min-height: 40px; /* Hauteur personnalisée pour la navbar */
+    }
+
+    .navbar-center {
+        display: flex;
+        justify-content: center;
     }
 </style>
 
-<nav class="logo-gauche navbar navbar-expand-lg navbar-light bg-light">
-   
+<nav class="logo-gauche navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+
     <!-- Logo -->
     <a class="navbar-brand ml-left ml-lg-0" href="#">
-        <img class="image-reduite" src="{{ asset('img/images_the_disctrict/the_district_brand/logo.png') }}" alt="Logo">
+        <img class="image-reduite" src="{{ asset('img/images_the_disctrict/the_district_brand/logo.png') }}"
+            alt="Logo">
     </a>
     <div class="container">
 
@@ -33,7 +43,7 @@
 
         <!-- Liens de navigation -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav navbar-center">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Commande</a>
                 </li>
@@ -50,10 +60,11 @@
         </div>
 
         <!-- Bouton de connexion/déconnexion -->
-        <div class="ml-auto">
+     
+    </div>   
+    <div class="ml-auto">
             <button class="btn btn-primary">Connexion</button>
         </div>
-    </div>
 </nav>
 
 {% endblock %}
