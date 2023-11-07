@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+<style>
+    /* Styles CSS */
+    .image-reduite {
+        width: 150px;
+        /* Largeur souhaitée */
+        height: 150px;
+        /* Hauteur souhaitée */
+    }
+
+    .logo-gauche {
+        margin-left: 0  ;
+    }
+</style>
+
+<nav class="logo-gauche navbar navbar-expand-lg navbar-light bg-light">
+   
+    <!-- Logo -->
+    <a class="navbar-brand ml-left ml-lg-0" href="#">
+        <img class="image-reduite" src="{{ asset('img/images_the_disctrict/the_district_brand/logo.png') }}" alt="Logo">
+    </a>
+    <div class="container">
+
+        <!-- Bouton d'ouverture du menu (pour les écrans plus petits) -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Liens de navigation -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Commande</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Plat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Catégorie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bouton de connexion/déconnexion -->
+        <div class="ml-auto">
+            <button class="btn btn-primary">Connexion</button>
+        </div>
+    </div>
+</nav>
+
+{% endblock %}
