@@ -15,16 +15,16 @@ class Categorie
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $libelle = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?bool $active = null;
+    #[ORM\Column(length: 255)]
+    private ?string $active = null;
 
-    #[ORM\OneToMany(mappedBy: 'Categorie', targetEntity: Plat::class)]
+    #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Plat::class)]
     private Collection $plats;
 
     public function __construct()
@@ -61,12 +61,12 @@ class Categorie
         return $this;
     }
 
-    public function isActive(): ?bool
+    public function getActive(): ?string
     {
         return $this->active;
     }
 
-    public function setActive(?bool $active): static
+    public function setActive(string $active): static
     {
         $this->active = $active;
 
@@ -74,7 +74,7 @@ class Categorie
     }
 
     /**
-     * @return Collection<int, Plat>
+     * @return Collection<int, Plats>
      */
     public function getPlats(): Collection
     {

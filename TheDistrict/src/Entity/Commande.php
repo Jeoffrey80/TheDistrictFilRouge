@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\CommandeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
@@ -16,20 +15,20 @@ class Commande
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_commande = null;
+    #[ORM\Column(length: 255)]
+    private ?string $date_commande = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+    #[ORM\Column(length: 255)]
     private ?string $total = null;
 
-    #[ORM\Column]
-    private ?int $etat = null;
+    #[ORM\Column(length: 255)]
+    private ?string $etat = null;
 
-    #[ORM\OneToMany(mappedBy: 'Commande', targetEntity: Detail::class)]
+    #[ORM\OneToMany(mappedBy: 'commande', targetEntity: Detail::class)]
     private Collection $details;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
-    private ?Utilisateur $Utilisateur = null;
+    private ?Utilisateur $utilisateur = null;
 
     public function __construct()
     {
@@ -40,13 +39,19 @@ class Commande
     {
         return $this->id;
     }
+    public function setId(int $id): static
+    {
+        $this->id = $id;
 
-    public function getDateCommande(): ?\DateTimeInterface
+        return $this;
+    }
+
+    public function getDateCommande(): ?string
     {
         return $this->date_commande;
     }
 
-    public function setDateCommande(\DateTimeInterface $date_commande): static
+    public function setDateCommande(string $date_commande): static
     {
         $this->date_commande = $date_commande;
 
@@ -65,12 +70,12 @@ class Commande
         return $this;
     }
 
-    public function getEtat(): ?int
+    public function getEtat(): ?string
     {
         return $this->etat;
     }
 
-    public function setEtat(int $etat): static
+    public function setEtat(string $etat): static
     {
         $this->etat = $etat;
 
@@ -109,12 +114,12 @@ class Commande
 
     public function getUtilisateur(): ?Utilisateur
     {
-        return $this->Utilisateur;
+        return $this->utilisateur;
     }
 
-    public function setUtilisateur(?Utilisateur $Utilisateur): static
+    public function setUtilisateur(?Utilisateur $utilisateur): static
     {
-        $this->Utilisateur = $Utilisateur;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

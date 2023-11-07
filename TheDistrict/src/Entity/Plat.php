@@ -2,10 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\PlatRepository;
+use App\Repository\PlatsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PlatRepository::class)]
@@ -16,30 +15,31 @@ class Plat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $libelle = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+    #[ORM\Column(type: "decimal", precision: 10, scale: 2)]
     private ?string $prix = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\Column]
-    private ?bool $active = null;
-
     #[ORM\ManyToOne(inversedBy: 'plats')]
-    private ?Categorie $Categorie = null;
+    #[ORM\JoinColumn(name: 'categorie_id', referencedColumnName: 'id')]
+    private ?Categorie $categorie = null;
 
-    #[ORM\OneToMany(mappedBy: 'Plat', targetEntity: Detail::class)]
-    private Collection $details;
+    #[ORM\Column(length: 255)]
+    private ?string $active = null;
+
+    #[ORM\OneToMany(mappedBy: 'plats', targetEntity: Detail::class)]
+    private Collection $detail;
 
     public function __construct()
     {
-        $this->details = new ArrayCollection();
+        $this->detail = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,12 +95,12 @@ class Plat
         return $this;
     }
 
-    public function isActive(): ?bool
+    public function getActive(): ?string
     {
         return $this->active;
     }
 
-    public function setActive(bool $active): static
+    public function setActive(string $active): static
     {
         $this->active = $active;
 
@@ -109,12 +109,12 @@ class Plat
 
     public function getCategorie(): ?Categorie
     {
-        return $this->Categorie;
+        return $this->categorie;
     }
 
-    public function setCategorie(?Categorie $Categorie): static
+    public function setCategorie(?Categorie $categorie): static
     {
-        $this->Categorie = $Categorie;
+        $this->categorie = $categorie;
 
         return $this;
     }
@@ -122,16 +122,16 @@ class Plat
     /**
      * @return Collection<int, Detail>
      */
-    public function getDetails(): Collection
+    public function getDetail(): Collection
     {
-        return $this->details;
+        return $this->detail;
     }
 
     public function addDetail(Detail $detail): static
     {
-        if (!$this->details->contains($detail)) {
-            $this->details->add($detail);
-            $detail->setPlat($this);
+        if (!$this->detail->contains($detail)) {
+            $this->detail->add($detail);
+            $detail->setPlats($this);
         }
 
         return $this;
@@ -139,10 +139,10 @@ class Plat
 
     public function removeDetail(Detail $detail): static
     {
-        if ($this->details->removeElement($detail)) {
+        if ($this->detail->removeElement($detail)) {
             // set the owning side to null (unless already changed)
-            if ($detail->getPlat() === $this) {
-                $detail->setPlat(null);
+            if ($detail->getPlats() === $this) {
+                $detail->setPlats(null);
             }
         }
 
