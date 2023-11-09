@@ -163,12 +163,13 @@ class Utilisateur
         return $this->roles;
     }
 
-    public function setRoles(string $roles): static
+    public function setRoles(array $roles): static
     {
         $this->roles = $roles;
-
+    
         return $this;
     }
+    
 
     /**
      * @return Collection<int, Commande>

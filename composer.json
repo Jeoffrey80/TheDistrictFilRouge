@@ -1,5 +1,6 @@
 {
     "require": {
-        "symfony/webapp-pack": "^1.2"
+        "symfony/webapp-pack": "^1.2",
+        "symfonycasts/verify-email-bundle": "^1.14"
     }
 }

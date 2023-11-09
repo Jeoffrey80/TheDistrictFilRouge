@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6215794328763dd86e2cf88aab9d12ddbe09151b',
+        'reference' => 'bee092d9bd0cee91a828d25c8a8e0938224ed40d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6215794328763dd86e2cf88aab9d12ddbe09151b',
+            'reference' => 'bee092d9bd0cee91a828d25c8a8e0938224ed40d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -412,8 +412,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache-implementation' => array(
@@ -1259,6 +1259,15 @@
             'reference' => '124fb85d004a1ab32de7af86f0d73b9e8fd1136f',
             'type' => 'symfony-pack',
             'install_path' => __DIR__ . '/../symfony/webapp-pack',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'symfonycasts/verify-email-bundle' => array(
+            'pretty_version' => 'v1.14.0',
+            'version' => '1.14.0.0',
+            'reference' => '9031ecab9a727ee45c0ec430fe2dcd44f8f95fd4',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../symfonycasts/verify-email-bundle',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
