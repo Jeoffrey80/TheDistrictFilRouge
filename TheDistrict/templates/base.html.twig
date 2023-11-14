@@ -1,42 +1,31 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="shortcut icon" href="img/images_the_disctrict/the_district_brand/favicon.png" />
-        <link rel="stylesheet" href="{{ asset('CSS/style.css') }}">
-        {% block stylesheets %}
-		</title>
-
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-		<link
-		rel="stylesheet" href="{{ asset('CSS/style.css') }}">
-
-		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-	
-			{# {{ encore_entry_link_tags('app') }} #}
-		{% endblock %}
-			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-		{% block javascripts %}
-			{# {{ encore_entry_script_tags('app') }} #}
-		{% endblock %}
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ asset('img/images_the_disctrict/the_district_brand/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% block stylesheets %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    {% block javascripts %}
+        {# {{ encore_entry_script_tags('app') }} #}
+    {% endblock %}
+</head>
+<body>
     <nav class="logo-gauche navbar navbar-expand-lg navbar-light bg-light navbar-custom">
-
         <!-- Logo -->
         <a class="navbar-brand ml-left ml-lg-0" href="#">
-            <img class="image-reduite" src="{{ asset('img/images_the_disctrict/the_district_brand/logo.png') }}"
-                alt="Logo">
+            <img class="image-reduite" src="{{ asset('img/images_the_disctrict/the_district_brand/logo_transparent.png') }}" alt="Logo">
         </a>
         <div class="container">
-    
             <!-- Bouton d'ouverture du menu (pour les écrans plus petits) -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
             <!-- Liens de navigation -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav navbar-center">
@@ -44,33 +33,75 @@
                         <a class="nav-link" href="#">Commande</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Plat</a>
+                        <a class="nav-link" href="{{ path('app_plat') }}">Plats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Catégorie</a>
+                        <a class="nav-link" href="{{ path('app_categorie') }}">Catégories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
             </div>
-    
             <!-- Bouton de connexion/déconnexion -->
-         
         </div>   
         <div class="ml-auto">
-                <button class="btn btn-primary">Connexion</button>
-            </div>
+            <button class="btn btn-primary">Connexion</button>
+        </div>
     </nav>
-    
 
+    {% block body %}
+    {% endblock %}
 
-    {# le header #}
+    <!-- Footer -->
+    <div class="placers d-flex justify-content-center align-items-center flex-wrap" style="background-color: rgba(0, 0, 0, 0); background: none !important; margin: 0; padding: 0;">
+        <!-- Réseaux sociaux -->
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-instagram fa-bounce"
+                    style="color: #2f00ff;font-size:75px;"></i></a>
+            <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-pinterest fa-bounce"
+                    style="color: #2f00ff;font-size:75px;"></i></a>
+            <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-twitter fa-bounce"
+                    style="color: #fafafa;font-size:75px;"></i></a>
+            <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-linkedin fa-bounce"
+                    style="color: #ffffff;font-size:75px;"></i></a>
+            <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-facebook fa-bounce"
+                    style="color: #f10303;font-size:75px"></i></a>
+            <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-youtube fa-bounce"
+                    style="color: #ff0000;font-size:75px"></i></a>
+        </div>
 
-<body>
+        <!-- Flèche pour remonter en haut -->
+        <nav style="color: transparent;">
+            <div class="d-flex justify-content-right align-items-center">
+                <a id="arrow-up" class="me-auto ms-5 justify-content-end">
+                    <i class="fa-solid fa-arrow-up fa-beat fa-2xl "
+                        style="color: #2f00ff;font-size: 50px; left:0px;"></i>
+                </a>
+            </div>
+        </nav>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- Politique de confidentialité et Mentions légales -->
+        <div>
+            <a href="politique_confidentialite.php">Politique de confidentialité</a> &nbsp
+            <a href="mentions_legales.php">Mentions Légales</a>
+        </div>
+    </div>
+
+    <!-- Script pour la flèche -->
+    <script>
+        document.getElementById('arrow-up').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+    <!-- FontAwesome et jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
-
-		{% block body %}
-        {% endblock %}
-        
 </html>

@@ -1,0 +1,50 @@
+
+{% block stylesheets %}
+    <style>
+        body {
+            background-image: url('{{ asset('img/feurmec.jpg') }}');
+            background-size: cover;
+        }
+
+        .error-card {
+            background-color: beige;
+            padding: 20px;
+            margin: 0 auto; /* Centrer horizontalement */
+            max-width: 400px; /* Largeur maximale de la carte */
+            text-align: center; /* Centrer le texte */
+        }
+
+        .error-card h1 {
+            color: #000; /* Couleur du texte noir */
+        }
+
+        .error-card p {
+            color: #000; /* Couleur du texte noir */
+        }
+
+        .error-video-container {
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centrer horizontalement */
+            align-items: center; /* Centrer verticalement */
+        }
+
+        .error-video {
+            max-width: 50%;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="error-card">
+        <h1>Erreur {{ status_code }}</h1>
+        <p>Erreur, Vos droits d'utilisateur ne vous donnent pas accès à cette partie du site, veuillez retourner
+            sur cette page : <a href="{{ path('app_accueil') }}">Accueil</a>.</p>
+    </div>
+    <div class="error-video-container">
+        <video class="error-video" controls>
+            <source src="{{ asset('video/lorenzo.mp4') }}" type="video/mp4">
+            Votre navigateur ne prend pas en charge la lecture de vidéos.
+        </video>
+    </div>
+{% endblock %}
