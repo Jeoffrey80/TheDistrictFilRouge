@@ -1,26 +1,50 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-{% block stylesheets %}{% endblock %}
-</head>
-<body>
-
-
+{% block title %}Créer un compte
+{% endblock %}
 
 {% block body %}
-{% for flash_error in app.flashes('verify_email_error') %}
-<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-{% endfor %}
 
-<h1 text-white>Register</h1>
 
-{{ form_errors(registrationForm) }}
+		<h2 class="fst-italic text-black text-end">Inscription</h2>
 
-{{ form_start(registrationForm) }}
-{{ form_row(registrationForm.email) }}
-{{ form_row(registrationForm.plainPassword, {
-    label: 'Password'
-}) }}
-{{ form_row(registrationForm.agreeTerms) }}
+		<div class="container mx-auto text-white" id="formulaire">
+			{{ form_errors(registrationForm) }}
 
-<button type="submit" class="btn border">Register</button>
-{{ form_end(registrationForm) }}
+			{{ form_start(registrationForm) }}
+
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.email, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.plainPassword.first, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.plainPassword.second, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.nom, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.prenom, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.telephone, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.adresse, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.codepostal, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+			<div class="col-md-6 mb-4">
+				{{ form_row(registrationForm.ville, {'attr': {'class': 'custom-input'}}) }}
+			</div>
+
+			{{ form_row(registrationForm.RGPDConsent) }}
+
+			<button type="submit" class="btn btn-primary btn-lg text-white mt-5">Je m'inscrit</button>
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+	
 {% endblock %}
