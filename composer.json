@@ -1,7 +1,0 @@
-{
-    "require": {
-        "symfony/webapp-pack": "^1.2",
-        "symfonycasts/verify-email-bundle": "^1.14",
-        "symfony/error-handler": "^6.3"
-    }
-}
