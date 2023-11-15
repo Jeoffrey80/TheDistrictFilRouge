@@ -25,13 +25,23 @@
         justify-content: center;
     }
 </style>
-
+<br><br>
+{% if app.user %}
+<p>
+    Bonjour {{ app.user.prenom }}
+</p>
+{% else %}
+<p>
+  Bonjour  Visiteur
+</p>
+{% endif %}
+<br><br>
     <div class=" video-container d-flex justify-content-center couleur-navigation">
         <video id="myVideo" class="d-block video" width="900" height="450" autoplay muted controls loop>
           <source src="{{ asset('video/pizza_-_176 (360p).mp4') }}" type="video/mp4">
           Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
         </video>
-
+        <br><br>
       </div>
       <div class="taillelogoaccueil d-flex justify-content-center align-items-center couleur-navigation carousel-item">
         <!--Corps de la page avec le slogan ainsi que quelques images-->
@@ -39,8 +49,6 @@
           <p class="fs-4 taillelogoaccueil">Bienvenue dans l'ère culinaire de The District :</p>
           <p>une fusion exquise de saveurs rapides et de satisfaction gourmande,
             où chaque bouchée vous transporte vers un monde de délices.
-          
-          T'as dis quoi ? Feur mec !</p>
         </ul>
         <br><br><br>
       </div><!--Corps de la page avec le slogan-->
