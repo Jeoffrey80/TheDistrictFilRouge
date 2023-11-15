@@ -5,6 +5,27 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     <link rel="shortcut icon" href="{{ asset('img/images_the_disctrict/the_district_brand/favicon.png') }}" />
     {% block stylesheets %}
+        <style>
+.image-reduite {
+    width:125px;
+    /* Largeur souhaitée */
+    height:125px;
+    /* Hauteur souhaitée */
+}
+
+.logo-gauche {
+    margin-left: 0;
+}
+
+.navbar-custom {
+    min-height: 40px; /* Hauteur personnalisée pour la navbar */
+}
+
+.navbar-center {
+    display: flex;
+    justify-content: center;
+}
+</style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -55,9 +76,9 @@
 
     {% block body %}
     {% endblock %}
-
+<br><br>
     <!-- Footer -->
-    <div class="placers d-flex justify-content-center align-items-center flex-wrap" style="background-color: rgba(0, 0, 0, 0); background: none !important; margin: 0; padding: 0;">
+    <div class="placers d-flex justify-content-center align-items-center flex-wrap" style="background-color:antiquewhite">
         <!-- Réseaux sociaux -->
         <div class="d-flex justify-content-center align-items-center flex-wrap">
             <a class="taillelogors my-5 mx-5"><i class="fa-brands fa-instagram fa-bounce"

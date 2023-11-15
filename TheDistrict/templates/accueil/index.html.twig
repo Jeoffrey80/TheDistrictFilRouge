@@ -3,39 +3,14 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
-<style>
-    /* Styles CSS */
-    .image-reduite {
-        width:125px;
-        /* Largeur souhaitée */
-        height:125px;
-        /* Hauteur souhaitée */
-    }
-
-    .logo-gauche {
-        margin-left: 0;
-    }
-
-    .navbar-custom {
-        min-height: 40px; /* Hauteur personnalisée pour la navbar */
-    }
-
-    .navbar-center {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 <br><br>
 {% if app.user %}
-<p>
-    Bonjour {{ app.user.prenom }}
-</p>
+<div style="text-align:center"><h1><b>Bonjour {{ app.user.prenom }}</b></h1></div>
 {% else %}
-<p>
-  Bonjour  Visiteur
-</p>
+<div style="text-align:center"><h1><b>Bonjour  Visiteur</b></h1></div>
 {% endif %}
 <br><br>
+<div style="background-color:antiquewhite">
     <div class=" video-container d-flex justify-content-center couleur-navigation">
         <video id="myVideo" class="d-block video" width="900" height="450" autoplay muted controls loop>
           <source src="{{ asset('video/pizza_-_176 (360p).mp4') }}" type="video/mp4">
@@ -43,15 +18,15 @@
         </video>
         <br><br>
       </div>
-      <div class="taillelogoaccueil d-flex justify-content-center align-items-center couleur-navigation carousel-item">
+    </div>
+    <br><br>
+      <div class="d-flex justify-content-center align-items-center couleur-navigation carousel-item" style="background-color:antiquewhite">
         <!--Corps de la page avec le slogan ainsi que quelques images-->
-        <ul class="nav-link couleurslogan "><u class="fs-1 taillelogoaccueil"><b>Large choix sur vos produits ! </b></u>
-          <p class="fs-4 taillelogoaccueil">Bienvenue dans l'ère culinaire de The District :</p>
-          <p>une fusion exquise de saveurs rapides et de satisfaction gourmande,
+        <ul class="nav-link"><u class="fs-1" style="color:black"><h1 style="color:black; text-align:center">Large choix sur vos produits ! </h1></u>
+          <p class="fs-4" style="color:black; text-align:center">Bienvenue dans l'ère culinaire de The District :</p>
+          <p style="color:black; text-align:center">une fusion exquise de saveurs rapides et de satisfaction gourmande,
             où chaque bouchée vous transporte vers un monde de délices.
         </ul>
-        <br><br><br>
       </div><!--Corps de la page avec le slogan-->
-  </div>
 <br><br><br><br><br><br><br>
 {% endblock %}
