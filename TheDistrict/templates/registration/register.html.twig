@@ -1,50 +1,100 @@
-{% block title %}Créer un compte
-{% endblock %}
-
 {% block body %}
+    <style>
+        body {
+            background-color: #f8f9fa; /* Couleur de fond */
+            margin: 0;
+        }
 
+        .navbar-custom {
+            margin-bottom: 0;
+        }
 
-		<h2 class="fst-italic text-black text-end">Inscription</h2>
+        #formulaire {
+            background-color: #e9ecef; /* Couleur de fond de la div */
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
 
-		<div class="container mx-auto text-white" id="formulaire">
-			{{ form_errors(registrationForm) }}
+        .custom-input {
+            /* Styles personnalisés pour vos champs d'entrée */
+            width: 100%;
+            padding: 5px; /* Ajustez cette valeur selon vos besoins */
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            color: black; /* Couleur du texte des champs */
+        }
 
-			{{ form_start(registrationForm) }}
+        .btn-primary {
+            /* Styles pour le bouton d'inscription */
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin-top: 10px;
+        }
 
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.email, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.plainPassword.first, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.plainPassword.second, {'attr': {'class': 'custom-input'}}) }}
-			</div>
+        .navbar-light .navbar-nav .nav-link {
+            color: black; /* Couleur du texte de la navbar */
+        }
 
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.nom, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.prenom, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.telephone, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.adresse, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.codepostal, {'attr': {'class': 'custom-input'}}) }}
-			</div>
-			<div class="col-md-6 mb-4">
-				{{ form_row(registrationForm.ville, {'attr': {'class': 'custom-input'}}) }}
-			</div>
+        .navbar-light .navbar-toggler-icon {
+            background-color: black; /* Couleur de l'icône du bouton de la navbar */
+        }
 
-			{{ form_row(registrationForm.RGPDConsent) }}
+        .navbar-light .navbar-toggler {
+            border-color: black; /* Couleur de la bordure du bouton de la navbar */
+        }
 
-			<button type="submit" class="btn btn-primary btn-lg text-white mt-5">Je m'inscrit</button>
-			{{ form_end(registrationForm) }}
-		</div>
-	</div>
-	
+        .navbar-light .navbar-toggler:focus, .navbar-light .navbar-toggler:hover {
+            background-color: black; /* Couleur de fond du bouton de la navbar au survol/focus */
+        }
+
+        .navbar-light .navbar-toggler:focus, .navbar-light .navbar-toggler:hover {
+            border-color: black; /* Couleur de la bordure du bouton de la navbar au survol/focus */
+        }
+    </style>
+    <div class="container mx-auto text-white" id="formulaire">
+        <h2 class="fst-italic text-black text-center mb-2">Inscription</h2>
+
+        {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm) }}
+
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.email, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.plainPassword.first, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.plainPassword.second, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.nom, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.prenom, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.telephone, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.adresse, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.codepostal, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+        <div class="col-md-6 mb-2">
+            {{ form_row(registrationForm.ville, {'attr': {'class': 'custom-input'}}) }}
+        </div>
+
+        {{ form_row(registrationForm.RGPDConsent) }}
+
+        <button type="submit" class="btn btn-primary btn-lg text-white mt-3">Je m'inscris</button>
+        {{ form_end(registrationForm) }}
+    </div>
+    <br>
 {% endblock %}
