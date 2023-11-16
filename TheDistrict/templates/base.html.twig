@@ -61,6 +61,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: #000000">Contact</a>
                     </li>
+                      <!-- Lien spécifique au rôle "Chef" -->
+                {% if is_granted('ROLE_CHEF') %}
+                <li class="nav-item pe-4">
+                    <a class="btn btn-order rounded-0 {% if is_granted('ROLE_CHEF') %}active{% endif %}" href="{{ path('Role_dashboard') }}" style="color: #000000">Chef</a>
+                </li>
+            {% endif %}
                 </ul>
             </div>
             <!-- Bouton de connexion/déconnexion -->

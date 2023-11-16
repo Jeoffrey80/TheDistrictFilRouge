@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\PlatsRepository;
+use App\Repository\PlatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -27,7 +27,7 @@ class Plat
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plats')]
+    #[ORM\ManyToOne(inversedBy: 'plat')]
     #[ORM\JoinColumn(name: 'categorie_id', referencedColumnName: 'id')]
     private ?Categorie $categorie = null;
 

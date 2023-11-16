@@ -3,3 +3,25 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+ajouter_au_panier:
+    path: /ajouter-au-panier/{platId}/{platImage}/{platPrix}/{platDescription}
+    controller: App\Controller\PlatController::ajouterAuPanier
+    methods: ['GET','POST']
+app_panier:
+    path: /panier
+    controller: App\Controller\PlatController::voirPanier
+Role_dashboard:
+    path: '/Role/dashboard'
+    controller: 'App\Controller\RoleController::dashboard'
+    methods: ['GET', 'POST']
+modifier_plat:
+    path: '/Role/modifier/{id}'
+    controller: 'App\Controller\RoleController::modifierPlat'
+    methods: ['GET', 'POST']
+    requirements:
+        id: '\d+'
+supprimer_plat:
+    path: '/Role/supprimer/{id}'
+    controller: 'App\Controller\RoleController::supprimerPlat'
+    requirements:
+        id: '\d+'

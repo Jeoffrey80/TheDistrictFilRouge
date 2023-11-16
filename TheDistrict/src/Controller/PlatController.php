@@ -55,14 +55,14 @@ class PlatController extends AbstractController
     }
 
     #[Route('/plats/{categorie_id}', name: 'app_plats_categorie')]
-    public function platsCategorie(int $categorie_id, CategorieRepository $categorieRepo): Response
+    public function platCategorie(int $categorie_id, CategorieRepository $categorieRepo): Response
     {
         // je récupère la categorie correspondant à l'id
         $categorie = $this->categorieRepo->find($categorie_id);
         dump($categorie);
 
         $plats = $categorie->getPlats();
-        return $this->render('district/plats.html.twig', [
+        return $this->render('platcate/platcategorie.html.twig', [
             'categories' => $categorie,
             'plats' => $plats,
         ]);

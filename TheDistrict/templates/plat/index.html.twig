@@ -61,6 +61,9 @@
                         <p class="content bg-body text-center">
                             {{ plat.prix }} euros
                         </p>
+                        <div class="mt-auto text-center"> <!-- Centrez le bouton -->
+                            <a class="btn btn-primary" href="{{ path('panier_add_panier', { id: plat.id }) }}">Ajouter au panier</a>
+                        </div>
                     </div>
                 </div>
             </div>
