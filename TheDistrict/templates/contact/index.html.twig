@@ -16,34 +16,50 @@
 
 		<body>
 
-
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 bg-white">
+                        <!-- Contenu de la div à gauche -->
+                        <h2></h2>
+                    </div>
+            
+                    <div class="col-md-4">
+                            <h1 class="">Contact</h1>
+                            {% dump(utilisateur) %}
+        
+                            {# Vérifier si l'utilisateur est connecté #}
+                            {% if utilisateur %}
+                                <p>Bienvenue,
+                                    <b>{{ utilisateur.getNom() }}
+                                    {{ utilisateur.getPrenom() }}</b> !</p>
+                                <p><b>Email:</b>
+                                    {{ utilisateur.getEmail() }}</p>
+                                <p><b>Téléphone:</b>
+                                    {{ utilisateur.getTelephone() }}</p>
+                                <p><b>Adresse:</b>
+                                    {{ utilisateur.getAdresse() }},
+                                    {{ utilisateur.getCodePostal() }}
+                                    {{ utilisateur.getVille() }}</p>
+                            </div>
+                            {# Vous pouvez ajouter d'autres informations ici en fonction de votre modèle Utilisateur #}
+                        {% else %}
+                            <p>Vous devez être connecté pour accéder à cette page.</p>
+                            {# Rediriger vers la page de connexion si l'utilisateur n'est pas connecté #}
+                            <a href="{{ path('app_login') }}">Se connecter</a>
+                            {% endif %}
+                    </div>
+            
+                    <div class="col-md-4 bg-white">
+                        <!-- Contenu de la div à droite -->
+                    </div>
+                </div>
+            </div>
+            
 			{% block content %}
-            <div class="align-item-center justify-content-center flex-wrap" style="background-color:antiquewhite">
-					<h1>Contact</h1>
-					{% dump(utilisateur) %}
-
-					{# Vérifier si l'utilisateur est connecté #}
-					{% if utilisateur %}
-						<p>Bienvenue,
-							<b>{{ utilisateur.getNom() }}
-							{{ utilisateur.getPrenom() }}</b> !</p>
-						<p><b>Email:</b>
-							{{ utilisateur.getEmail() }}</p>
-						<p><b>Téléphone:</b>
-							{{ utilisateur.getTelephone() }}</p>
-						<p><b>Adresse:</b>
-							{{ utilisateur.getAdresse() }},
-							{{ utilisateur.getCodePostal() }}
-							{{ utilisateur.getVille() }}</p>
-					</div>
-					{# Vous pouvez ajouter d'autres informations ici en fonction de votre modèle Utilisateur #}
-				{% else %}
-					<p>Vous devez être connecté pour accéder à cette page.</p>
-					{# Rediriger vers la page de connexion si l'utilisateur n'est pas connecté #}
-					<a href="{{ path('app_login') }}">Se connecter</a>	
+            	
                 </body>
             </html>
-				{% endif %}
+				
 			{% endblock %}
 		{% endblock %}
 
