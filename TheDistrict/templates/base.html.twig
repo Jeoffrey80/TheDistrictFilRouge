@@ -116,9 +116,10 @@
         
     </div>
 <div class="text-center">
-            <a href="politique_confidentialite.php">Politique de confidentialité</a> &nbsp
-            <a href="mentions_legales.php">Mentions Légales</a>
-        </div>
+    <a href="{{ path('app_politique') }}">Politique de confidentialité</a>
+    <a href="{{ path('app_mentions') }}">Mentions Légales</a>
+</div>
+
     <!-- Script pour la flèche -->
     <script>
         document.getElementById('arrow-up').addEventListener('click', function () {

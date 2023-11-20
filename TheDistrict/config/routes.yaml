@@ -25,3 +25,15 @@ supprimer_plat:
     controller: 'App\Controller\RoleController::supprimerPlat'
     requirements:
         id: '\d+'
+app_finaliser:
+    path: /finaliser
+    controller: App\Controller\FinaliserController::index
+    methods: [GET, POST]
+
+app_politique:
+    path: /politique
+    controller: App\Controller\PoliMentionController::politique
+
+app_mentions:
+    path: /mentions
+    controller: App\Controller\PoliMentionController::mentions

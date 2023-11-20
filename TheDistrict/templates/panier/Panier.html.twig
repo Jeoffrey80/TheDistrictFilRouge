@@ -52,11 +52,15 @@
                                     {# Liens pour vider le panier, voir les plats, et finaliser la commande #}
                                     <a href="{{ path('panier_empty_panier') }}" class="btn btn-danger">Vider</a>
                                     <a href="{{ path('app_plat') }}" class="btn btn-primary">Plats</a>
-                                    {# {% if data is not empty %}
-                                        {# <a href="{{ path('app_contact') }}" class="btn btn-success">Finaliser</a> #}
-                                    {# {% else %} #}
-                                        {# <button class="btn btn-success" disabled>Finaliser</button> #}
-                                    {# {% endif %} #}
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    {% if data is not empty %}
+                                    <a href="{{ path('app_finaliser')}}" class="btn btn-success">Finaliser</a>
+                                    {% else %}
+                                    <button class="btn btn-success" disabled>Finaliser</button>
+                                    {% endif %}
+                                    {% else %}
+                                    <p class="text-red">Connectez-vous pour finaliser votre commande.</p>
+                                    {% endif %}
                                 </td>
                             </tr>
                         </tfoot>

@@ -109,7 +109,7 @@ $user1->setNom("test");
 $user1->setPrenom("test2");
 $user1->setTelephone("0123456789");
 $user1->setAdresse("3 rue des cailloux");
-$user1->setCp("80000");
+$user1->setCodePostal("80000");
 $user1->setVille("amiens");
 $user1->setRoles(["Role_USER"]);
 $manager->persist($user1);
@@ -122,33 +122,10 @@ $user2->setNom("test222");
 $user2->setPrenom("test2");
 $user2->setTelephone("0123456789");
 $user2->setAdresse("3 rue des cailloux");
-$user2->setCp("80000");
+$user2->setCodePostal("80000");
 $user2->setVille("amiens");
 $user2->setRoles(["Role_USER"]);
 $manager->persist($user2);
-
-$comm1 = new Commande();
-$comm1->setDateCommande("6/11/2023");
-$comm1->setTotal("10");
-$comm1->setEtat("en cours");
-$manager->persist($comm1);
-
-$comm2 = new Commande();
-$comm2->setDateCommande("7/11/2023");
-$comm2->setTotal("20");
-$comm2->setEtat("livré");
-$manager->persist($comm2);
-
-$comm3 = new Commande();
-$comm3->setDateCommande("8/11/2023");
-$comm3->setTotal("30");
-$comm3->setEtat("annulée");
-$manager->persist($comm3);
-
-
-
-
-
 
 // Exécuter les opérations de persist
 $manager->flush();
