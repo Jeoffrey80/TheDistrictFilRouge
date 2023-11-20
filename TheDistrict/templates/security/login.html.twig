@@ -33,7 +33,8 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+           <p> Vous êtes connecté à l'adresse <b>{{ app.user.userIdentifier }}</b>,</p> <p><a href="{{ path('app_logout') }}">déconnexion</a>
+            ou <a href="{{ path('app_accueil')}}">Retourner à la page d'accueil</a></p>
         </div>
     {% endif %}
 
@@ -44,11 +45,11 @@
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+           value="{{ csrf_token('authenticate') }}">
 
     <button class="btn btn-lg btn-primary" type="submit">
         Connexion
     </button>
 </form>
+<p>Pas de compte ? <a href="{{ path('app_register') }}">Inscrivez-vous !</a></p>
 {% endblock %}

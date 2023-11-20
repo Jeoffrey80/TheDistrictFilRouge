@@ -35,7 +35,7 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/Role, roles: ROLE_CHEF }
         - { path: ^/Role, roles: ROLE_ADMIN }
-
+        - { path: ^/contact, roles: ROLE_USER }
 
 
     role_hierarchy:

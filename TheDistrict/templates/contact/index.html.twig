@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block title %} Contact {% endblock %}
+{% block body %}
+	<!DOCTYPE html>
+	<html lang="fr">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Mentions Légales</title>
+			<link
+			rel="stylesheet" href="styles.css">			
+		<!-- Vous pouvez ajouter un lien vers votre fichier CSS s'il existe -->
+		</head>
+
+		<body>
+
+
+			{% block content %}
+            <div class="align-item-center justify-content-center flex-wrap" style="background-color:antiquewhite">
+					<h1>Contact</h1>
+					{% dump(utilisateur) %}
+
+					{# Vérifier si l'utilisateur est connecté #}
+					{% if utilisateur %}
+						<p>Bienvenue,
+							<b>{{ utilisateur.getNom() }}
+							{{ utilisateur.getPrenom() }}</b> !</p>
+						<p><b>Email:</b>
+							{{ utilisateur.getEmail() }}</p>
+						<p><b>Téléphone:</b>
+							{{ utilisateur.getTelephone() }}</p>
+						<p><b>Adresse:</b>
+							{{ utilisateur.getAdresse() }},
+							{{ utilisateur.getCodePostal() }}
+							{{ utilisateur.getVille() }}</p>
+					</div>
+					{# Vous pouvez ajouter d'autres informations ici en fonction de votre modèle Utilisateur #}
+				{% else %}
+					<p>Vous devez être connecté pour accéder à cette page.</p>
+					{# Rediriger vers la page de connexion si l'utilisateur n'est pas connecté #}
+					<a href="{{ path('app_login') }}">Se connecter</a>	
+                </body>
+            </html>
+				{% endif %}
+			{% endblock %}
+		{% endblock %}
+
