@@ -32,9 +32,10 @@ class CommandeController extends AbstractController
             $montantTotalPanier += $plat->getPrix() * $element['quantity'];
         }
 
-        // Crée une nouvelle instance de la classe Commande
+        // // Crée une nouvelle instance de la classe Commande
         $nouvelleCommande = new Commande();
-
+        // $request->get('total');
+        // DD ($total);
         // Configure les propriétés de la commande
         $nouvelleCommande->setDateCommande($dateCommande);
         $nouvelleCommande->setTotal($montantTotalPanier);
