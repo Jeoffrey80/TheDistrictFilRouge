@@ -23,6 +23,7 @@ class PanierController extends AbstractController
 
         foreach($panier as $id => $quantity) {
             $plat = $platsRepository->find($id);
+            // dd($plat);
 
             $data[] = [
                 'plat' => $plat,
@@ -30,6 +31,8 @@ class PanierController extends AbstractController
             ];
             $total += $plat->getPrix() * $quantity;
         }
+        
+        // dd($session);
 
         //compact() crée un tableau à partir de variables et de leur valeur
         return $this->render('panier/Panier.html.twig', compact('data', 'total'));

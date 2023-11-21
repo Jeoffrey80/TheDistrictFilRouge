@@ -24,7 +24,7 @@ class FinaliserController extends AbstractController
         $panier = $session->get('panier', []); 
 
         // Initialise le montant total du panier
-        $montantTotalPanier = 0;
+        $montantTotalPanier =$request->get('total', 0);
 
         // Parcourt chaque élément du panier
         foreach ($panier as $element) {
