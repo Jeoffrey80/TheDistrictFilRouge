@@ -1,2 +1,2 @@
 
-GET http://api.themoviedb.org/1/search/movie?api_key=f33cd318f5135dba306176c13104506a&query=avenger
+GET https://127.0.0.1:8000/api
