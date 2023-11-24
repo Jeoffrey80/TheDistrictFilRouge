@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\FinaliserForm;
+use App\Form\PaymentForm;
 use App\Form\DeliveryFormType;
 use App\Repository\PlatRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,6 +19,7 @@ class FinaliserController extends AbstractController
 {
     public function index(Request $request, PlatRepository $platsRepository, EntityManagerInterface $entityManager, SessionInterface $session): Response
     {
+        $paymentForm = $this->createForm(PaymentForm::class);
         $deliveryForm = $this->createForm(DeliveryFormType::class);
         
         // Récupère les éléments du panier ici
@@ -82,6 +84,7 @@ class FinaliserController extends AbstractController
         return $this->render('commande/finaliser.html.twig', [
             'deliveryForm' => $deliveryForm->createView(),
             'FinaliserForm' => $finaliserForm->createView(),
+            'PaymentForm' => $paymentForm->createView(),
         ]);
     }
 }

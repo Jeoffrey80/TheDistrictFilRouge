@@ -17,14 +17,14 @@ class FinaliserForm extends AbstractType
         $builder
             ->add('nom', TextType::class, ['label' => 'Nom'])
             ->add('prenom', TextType::class, ['label' => 'Prénom'])
-            ->add('pays', CountryType::class, ['label' => 'Pays'])
+            // ->add('pays', CountryType::class, ['label' => 'Pays'])
             ->add('ville', TextType::class, ['label' => 'Ville'])
             ->add('codepostal', IntegerType::class, ['label' => 'Code Postal'])
             ->add('adresse', TextType::class, ['label' => 'Adresse'])
             ->add('total', TextType::class, [
                 'label' => 'Total',
                 'mapped' => false, // Ne pas mapper ce champ à une propriété de l'entité
-                'attr' => ['readonly' => true, 'value' => $options['montant_total']], // Le rendre en lecture seule
+                'attr' => ['readonly' => true, 'value' => $options['montant_total'] . '€'], // Le rendre en lecture seule
             ])
             ->add('submit', SubmitType::class, ['label' => 'Valider']);
     }

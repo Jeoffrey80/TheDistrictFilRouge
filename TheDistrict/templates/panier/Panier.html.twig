@@ -61,7 +61,7 @@
                                     {# Stocker le prix total dans la variable de session #}
                                     {% set app_total = total %}
                                     {# Débogage du montant total #}
-                                    {{ dump(app_total) }}
+                                    {# {{ dump(app_total) }} #}
                                     <a href="{{ path('app_finaliser', { total: total }) }}" class="btn btn-success">Finaliser</a>
 
                                 {% else %}
