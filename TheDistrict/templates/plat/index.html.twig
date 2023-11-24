@@ -5,8 +5,7 @@ Plats
 {% endblock %}
 
 {% block body %}
-<div class="contenu">
-    <br><br><br><br>
+<body style="background-color:antiquewhite">
     <h1 class="fst-italic text-center">Nos Plats</h1>
     <br>
     
@@ -51,7 +50,7 @@ Plats
                 <div class="row">
             {% endif %}
             <div class="col-md-4 mb-4">
-                <div class="card" id="images" style="width: 18rem;">
+                <div class="card" id="images" style="width: 18rem; border-radius: 50% 20% / 10% 40%;">
                     <img src="{{ asset(plat.image) }}" alt="{{ plat.libelle }}" class="card-img-top" style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column justify-content-center align-items-center">
                         <h5 class="card-title text-center">{{ plat.libelle }}</h5>
@@ -74,4 +73,6 @@ Plats
 
     {# Ajoutez le lien "Voir le panier" ici #}
 </div>
+</body>
+    <br><br><br><br>
 {% endblock %}

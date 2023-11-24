@@ -11,8 +11,8 @@
             <div class="row">
                 {# Boucle pour afficher chaque plat #}
                 {% for plat in plats %}
-                    <div class="col-md-6 mb-4">
-                        <div class="card" style="width: 18rem;">
+                    <div class="col-md-6 mb-4" style="border-radius: 50% 20% / 10% 40%;">
+                        <div class="card" style="width: 18rem; border-radius: 50% 20% / 10% 40%;">
                             <img src="{{ asset(plat.image) }}" alt="{{ plat.libelle }}">
                             <div class="card-body">
                                 <h5 class="card-title"> {{ plat.libelle }}</h5>

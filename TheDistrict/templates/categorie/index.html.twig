@@ -4,7 +4,7 @@ Catégorie
 {% endblock %}
 
 {% block body %}
-<div class="contenu">
+<div class="contenu" style="background-color: antiquewhite;">
     <br><br><br><br>
     <h1 class="fst-italic text-center">Nos Catégories</h1>
     <br>
@@ -14,7 +14,7 @@ Catégorie
             
     {% for categorie in categories %}
         <div class="col-md-6 mb-4">
-            <div class="card" id="images" style="width: 15rem;">
+            <div class="card" id="images" style="width: 15rem; border-radius: 50% 20% / 10% 40%;">
                 <a href="{{ path('app_plats_categorie', {'categorie_id': categorie.id}) }}">
                 <img src="{{ asset(categorie.image) }}" alt="{{ categorie.libelle }}" class="card-img-top" style="height: 200px; object-fit: cover;">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
