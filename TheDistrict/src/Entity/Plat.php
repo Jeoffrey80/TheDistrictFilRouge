@@ -49,7 +49,7 @@ class Plat
     #[ORM\Column(length: 255)]
     private ?string $active = null;
 
-    #[ORM\OneToMany(mappedBy: 'plats', targetEntity: Detail::class)]
+    #[ORM\OneToMany(mappedBy: 'plat', targetEntity: Detail::class)]
     private Collection $detail;
 
     public function __construct()
