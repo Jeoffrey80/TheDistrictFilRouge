@@ -41,7 +41,7 @@ class RoleController extends AbstractController
                     );
 
                     // Stockez le chemin complet dans la base de données
-                    $plat->setImage('img/images_the_disctrict/food/Plats' . $newFilename);
+                    $plat->setImage('/img/images_the_disctrict/food/Plats/' . $newFilename);
 
                 } catch (FileException $e) {
                     // Gérer l'exception, par exemple, afficher un message à l'utilisateur
