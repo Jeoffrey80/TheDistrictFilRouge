@@ -4,13 +4,8 @@
 Plats
 {% endblock %}
 
-{% block body %}
-<body style="background-color:antiquewhite">
-    <h1 class="fst-italic text-center">Nos Plats</h1>
-    <br>
-    
-    <main class="container">
-        <style>
+{% block stylesheets %}
+<style>
             .clamp-description {
                 overflow: hidden;
                 display: -webkit-box;
@@ -24,6 +19,16 @@ Plats
                 height: 1em; /* Ajustez la hauteur de la ligne vide selon vos besoins */
             }
     </style>
+{% endblock %}
+
+
+{% block body %}
+<body style="background-color:antiquewhite">
+    <h1 class="fst-italic text-center">Nos Plats</h1>
+    <br>
+    
+    <main class="container">
+        
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 let cardTexts = document.querySelectorAll(".card-text");
