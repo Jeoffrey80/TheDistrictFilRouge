@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     images_directory: '%kernel.project_dir%/public/img/images_the_disctrict/food/Plats/'
-
+    confirmation_email: 'Jeoffrey.lavallee@gmail.com'
 
 services:
     # default configuration for services in *this* file
@@ -24,3 +24,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\EventSubscriber\CommandeSubscriber:
+        arguments:
+            $mailer: '@mailer'
+            $parameterBag: '@parameter_bag'
+        tags:
+            - { name: 'doctrine.event_subscriber', connection: 'default' }
