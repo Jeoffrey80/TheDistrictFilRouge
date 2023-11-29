@@ -45,3 +45,7 @@ app_contact:
 app_registration:
     path: '/register'
     controller: 'App\Controller\RegistrationController::register'
+
+# react_plats:
+#     path: '/react/plats'
+#     controller: 'App\Controller\ReactPlatsController::reactPlats'

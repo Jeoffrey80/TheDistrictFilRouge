@@ -11,6 +11,12 @@ Catégorie
     
     <main class="container">
         <div class="row" >
+            {{ encore_entry_link_tags('app') }}
+            
+    <div id="cat-app"></div>
+    <!-- Autres éléments de votre page -->
+    {{ encore_entry_script_tags('app') }}
+
             
     {% for categorie in categories %}
         <div class="col-md-6 mb-4">

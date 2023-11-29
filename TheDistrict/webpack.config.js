@@ -13,11 +13,7 @@ Encore
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
-    .enableVersioning(Encore.isProduction())
-    .configureBabelPresetEnv((config) => {
-        config.useBuiltIns = 'usage';
-        config.corejs = '3.23';
-    });
+    .enableVersioning(Encore.isProduction());
 
 // Uncomment the line below if you're using React
 // Encore.enableReactPreset();

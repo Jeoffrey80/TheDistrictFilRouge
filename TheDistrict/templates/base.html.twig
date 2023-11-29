@@ -7,6 +7,9 @@
     {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         <style>
+            a {
+	text-decoration: none;
+}
 .image-reduite {
     width:125px;
     /* Largeur souhaitée */
@@ -117,8 +120,8 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
         <!-- Politique de confidentialité et Mentions légales -->
         <div class="text-center">
-    <a href="{{ path('app_politique') }}">Politique de confidentialité</a>
-    <a href="{{ path('app_mentions') }}">Mentions Légales</a>
+    <a href="{{ path('app_politique') }}" style="color: #000000; text-decoration: none;">Politique de confidentialité</a>
+    <a href="{{ path('app_mentions') }}"style="color: #000000; text-decoration: none;" >Mentions Légales</a>
 </div>
     </div>
 
