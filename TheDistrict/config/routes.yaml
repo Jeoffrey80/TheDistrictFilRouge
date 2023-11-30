@@ -46,6 +46,10 @@ app_registration:
     path: '/register'
     controller: 'App\Controller\RegistrationController::register'
 
+app_cgu:
+    path: '/cgu'
+    controller: 'App\Controller\CguController::cgu'
+
 # react_plats:
 #     path: '/react/plats'
 #     controller: 'App\Controller\ReactPlatsController::reactPlats'

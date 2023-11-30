@@ -1,5 +1,4 @@
 <?php
-// src/Controller/YourController.php
 
 namespace App\Controller;
 
@@ -9,10 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CguController extends AbstractController
 {
-    /**
-     * @Route("/politique", name="app_politique")
-     */
-    public function politique(): Response
+    
+         public function cgu(): Response
     {
         return $this->render('cgu/index.html.twig');
     }
