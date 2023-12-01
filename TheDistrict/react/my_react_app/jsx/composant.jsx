@@ -40,17 +40,17 @@ const MonPremierComposant = (props) => {
                     <div className="row justify-content-center">
                         {categories.map((category, index) => (
                             <div className="col-md-4 col-lg-3 p-2" key={index} style={{ backgroundColor: '#D3D3D3', padding: '10px', borderRadius: '10px', margin: '10px' }}>
-                                <Card style={{ width: '18rem', borderRadius: '50% 20% / 10% 40%' }}>
-                                    <Card.Img variant="top" src={category.image} style={{ height: '200px', objectFit: 'cover' }}/>
+                                <a href={`/plats/${category.id}`} ><Card style={{ width: '18rem', borderRadius: '50% 20% / 10% 40%' }} href={`/plats/${category.id}`}>
+                                    <Card.Img variant="top" src={category.image} style={{ height: '200px', objectFit: 'cover' }} href={`/plats/${category.id}`}/>
                                     <Card.Body>
-                                        <Card.Title className="row justify-content-center">{category.libelle}</Card.Title>
-                                        <Card.Text>
+                                        <Card.Title className="row justify-content-center" href={`/plats/${category.id}`}>{category.libelle}</Card.Title>
+                                        <a href={`/plats/${category.id}`}><Card.Text>
                                             {category.description}
-                                        </Card.Text>
+                                        </Card.Text></a>
                                     </Card.Body>
-                                    <a href={`/plats/${category.id}`} >Click</a>
+                                    <a href={`/plats/${category.id}`} ></a>
                                 
-                                </Card>
+                                </Card></a>
                             </div>
                         ))}
                     </div>
