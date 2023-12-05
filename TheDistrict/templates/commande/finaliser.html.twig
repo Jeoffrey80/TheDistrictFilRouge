@@ -38,8 +38,9 @@
             {{ form_row(FinaliserForm.codepostal) }}
             {{ form_row(FinaliserForm.adresse) }}
             {{ form_row(FinaliserForm.total) }} {# Ajout du champ total #}
+            {{ form_widget(FinaliserForm.submit, { 'label': 'Finaliser la commande' }) }}<br>
             <a href="{{ path ('app_cgu') }}" target="_blank">Consulter les CGU</a><br>
-            {{ form_widget(FinaliserForm.submit, { 'label': 'Finaliser la commande' }) }}
+            
             {{ form_end(FinaliserForm) }}
         </div>
     </div>

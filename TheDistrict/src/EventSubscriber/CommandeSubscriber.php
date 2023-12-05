@@ -66,6 +66,7 @@ class CommandeSubscriber implements EventSubscriber
         // Construit le contenu de l'e-mail avec les détails de la commande
         $content = "Commande confirmée avec succès.\n" . "<br><br>";
         $content .= "Détails de la commande :\n" . "<br><br>";
+        $content.="plats:"."<br><br>";
         $content .= "Date : " . $commande->getDateCommande()->format('Y-m-d H:i:s') . "\n" . "<br><br>";
         $content .= "Montant total : " . $commande->getTotal() . " EUR\n";
     
