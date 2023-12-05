@@ -83,6 +83,7 @@ class FinaliserController extends AbstractController
             // Flush pour sauvegarder les détails dans la base de données
             $entityManager->flush();
 
+            $session->remove('panier');
             return $this->redirectToRoute('app_accueil');
         }
 
